@@ -34,6 +34,14 @@ async function run(){
 
         })
 
+        app.get('/userProduct', async (req,res) => {
+            const email = req.query.email;
+            const query = {email};
+            const cursor = productCollection.find(query);
+            const products = await cursor.toArray();
+            res.send(products)
+        })
+
         //update quantity
         app.put('/product/:id', async (req,res) => {
             const id = req.params.id;
