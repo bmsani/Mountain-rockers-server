@@ -88,7 +88,7 @@ async function run() {
                 }
             };
             const result = await productCollection.updateOne(filter, updatedProduct, options);
-            res.send(result);
+            res.send({success:result});
         })
 
         //post
